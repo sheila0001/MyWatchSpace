@@ -8,4 +8,4 @@ const Watched = () => {
     )
 }
 
-export default Watched
+export default Watched;

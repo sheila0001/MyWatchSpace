@@ -1,11 +1,11 @@
 import React from 'react'
 
-const watchlist = () => {
+const Watchlist = () => {
     return (
         <div>
-            <h1> MyWatchSpace</h1>
+            <h1> Watchlist Page</h1>
         </div>
     )
 }
 
-export default watchlist
+export default Watchlist;
