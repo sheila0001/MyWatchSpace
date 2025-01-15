@@ -1,39 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { ResultCard } from "./ResultCard";
 
 export const Add = () => {
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
 
-    const onChange = async (e) => {
+    const onChange = (e) => {
         e.preventDefault();
 
         const searchTerm = e.target.value;
         setQuery(searchTerm);
 
-        // Return early if input is empty
         if (!searchTerm.trim()) {
-            setResults([]);
+            setResults([]); // Clear results if input is empty
             return;
         }
 
-        const apiKey = process.env.REACT_APP_TMDB_API_KEY; // Fetch API key from environment variable
+        const apiKey = process.env.REACT_APP_TMDB_API_KEY; // Ensure correct variable name
         const baseURL =
-            'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1';
+            "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1";
 
-        try {
-            const response = await fetch(`${baseURL}&api_key=${apiKey}&query=${searchTerm}`);
-            const data = await response.json();
-
-            // Check if results exist and set them
-            if (data.results && data.results.length > 0) {
-                setResults(data.results);
-            } else {
-                setResults([]); // Clear results if no movies found
-            }
-        } catch (error) {
-            console.error('Error fetching movie data:', error);
-            setResults([]); // Clear results on fetch failure
-        }
+        fetch(`${baseURL}&api_key=${apiKey}&query=${searchTerm}`)
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.results && data.results.length > 0) {
+                    setResults(data.results);
+                } else {
+                    setResults([]);
+                }
+            })
+            .catch((error) => {
+                console.error("Error fetching movie data:", error);
+                setResults([]);
+            });
     };
 
     return (
@@ -52,7 +51,9 @@ export const Add = () => {
                     {results.length > 0 && (
                         <ul className="results">
                             {results.map((movie) => (
-                                <li key={movie.id}>{movie.title}</li>
+                                <li key={movie.id}>
+                                    <ResultCard movie={movie} />
+                                </li>
                             ))}
                         </ul>
                     )}
@@ -61,3 +62,4 @@ export const Add = () => {
         </div>
     );
 };
+
