@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const Watched = () => {
+export const Watched = () => {
     return (
         <div>
             <h1> Watched Page</h1>
         </div>
-    )
-}
+    );
+};
 
-export default Watched;
+

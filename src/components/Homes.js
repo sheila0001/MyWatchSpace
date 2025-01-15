@@ -1,33 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+export const Homes = () => {
     return (
         <header>
             <div className="container">
-                <div classNme="inner-content">
+                <div className="inner-content">
                     <div className="brand">
-                        <link to="/"> Watchlist</link>
+                        {/* Corrected `Link` usage */}
+                        <Link to="/">Watchlist</Link>
                     </div>
-
 
                     <ul className="nav-links">
                         <li>
-                            <Link to="/Watchlist">Watchlist </Link>
-                            <Link to="/Watched">Watched</Link>
+                            <Link to="/watchlist">Watchlist</Link>
                         </li>
-
                         <li>
-                            <Link to="/Add" className="btn">
+                            <Link to="/watched">Watched</Link>
+                        </li>
+                        <li>
+                            <Link to="/add" className="btn">
                                 + Add
                             </Link>
                         </li>
                     </ul>
                 </div>
             </div>
-
-
         </header>
-    )
-}
-export default Header;
+    );
+};
+
