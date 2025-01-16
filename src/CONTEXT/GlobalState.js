@@ -40,7 +40,7 @@ export const GlobalProvider = (props) => {
 
     // remove movies from watched feature
     const removeFromWatched = id => {
-        dispatch({ type: "REMOVE_FROM_WATCHED, payload: id" });
+        dispatch({ type: "REMOVE_FROM_WATCHED", payload: id });
     }
     return (
         <GlobalContext.Provider
