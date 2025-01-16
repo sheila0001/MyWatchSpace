@@ -18,6 +18,14 @@ const appReducer = (state, action) => {
                 ),
                 watched: [action.payload, ...state.watched],
             };
+        case "MOVE_TO_WATCHLIST":
+            return {
+                ...state,
+                watched: state.watched.filter(movie => movie.id !== action.payload.id),
+                watchlist: [action.payload, ...state.watchlist]
+
+            }
+
 
         default:
             return state; // Return the current state for unknown actions
