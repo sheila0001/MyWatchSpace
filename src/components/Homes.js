@@ -8,7 +8,7 @@ export const Homes = () => {
                 <div className="inner-content">
                     <div className="brand">
                         {/* Corrected `Link` usage */}
-                        <Link to="/">Watchlist</Link>
+                        <Link to="/">MyWatchSpace</Link>
                     </div>
 
                     <ul className="nav-links">
