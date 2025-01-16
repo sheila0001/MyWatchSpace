@@ -20,6 +20,8 @@ export const Add = () => {
         const baseURL =
             "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1";
 
+        console.log(`${baseURL}&api_key=${apiKey}&query=${searchTerm}`); // Debugging URL
+
         fetch(`${baseURL}&api_key=${apiKey}&query=${searchTerm}`)
             .then((res) => res.json())
             .then((data) => {
@@ -62,4 +64,3 @@ export const Add = () => {
         </div>
     );
 };
-

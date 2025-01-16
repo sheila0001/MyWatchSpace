@@ -6,21 +6,27 @@ import { Add } from './components/Add';
 import { Homes } from './components/Homes';
 import './App.css';
 import './lib/font-awesome/css/all.min.css';
+import { GlobalProvider } from './CONTEXT/GlobalState';
+
 
 function App() {
   return (
-    <Router>
-      {/* Header */}
-      <Homes />
+    <GlobalProvider>
 
-      {/* Routes */}
-      <Routes>
-        <Route path="/" element={<Watchlist />} />
-        <Route path="/watchlist" element={<Watchlist />} />
-        <Route path="/watched" element={<Watched />} />
-        <Route path="/add" element={<Add />} />
-      </Routes>
-    </Router>
+
+      <Router>
+        {/* Header */}
+        <Homes />
+
+        {/* Routes */}
+        <Routes>
+          <Route path="/" element={<Watchlist />} />
+          <Route path="/watchlist" element={<Watchlist />} />
+          <Route path="/watched" element={<Watched />} />
+          <Route path="/add" element={<Add />} />
+        </Routes>
+      </Router>
+    </GlobalProvider>
   );
 }
 
