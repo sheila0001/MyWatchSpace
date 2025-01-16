@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../CONTEXT/GlobalState';
 
 export const Watched = () => {
     return (
